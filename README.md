@@ -6,8 +6,16 @@ El objetivo es comparar diferentes combinaciones de **motor de ejecución (Docke
 ---
 
 ## 🎯 Objetivo del reto
-Diseñar y construir un sistema que, ante un estímulo (ejemplo: un mensaje), responda con otro mensaje (ejemplo: `"respuesta"`) en el menor tiempo posible.  
-La meta es lograr latencias **menores a 1 ms** en condiciones óptimas.
+Diseñar y construir un sistema que, ante un estímulo (ejemplo: un mensaje), responda con otro mensaje (ejemplo: `"respuesta"`) en el menor tiempo posible.  La meta es lograr latencias **menores a 1 ms** en condiciones óptimas.
+
+---
+
+## 🎯 Requisitos básicos
+
+- El sistema debe escuchar permanentemente peticiones o estímulos.  
+- Al recibir el estímulo, el sistema debe retornar una respuesta específica.  
+- Debe medirse el tiempo transcurrido desde el momento en que se envía el estímulo hasta que se recibe la respuesta.
+
 
 ---
 
