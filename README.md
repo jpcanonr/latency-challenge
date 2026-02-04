@@ -23,16 +23,19 @@ Cada subcarpeta corresponde a un escenario:
 ├── escenario6_k8s-http-go
 ├── escenario7_k8s-tcp-python
 └── escenario8_k8s-http-python
+```
 
 Dentro de cada carpeta encontrarás:
 - `server.*` → Código del servidor que escucha estímulos.
 - `client.*` → Código del cliente que envía estímulos y mide latencia.
 - `Dockerfile` → Imagen para ejecutar el servidor en contenedor.
+- `benchmark.py` → Código que envía 100o peticiones, y da a la salida el máximo, m´nimo y promedio de latencia.
 - `README.md` → Instrucciones específicas de ejecución para ese escenario.
 
 ---
 
 ## 🧪 Cómo ejecutar un escenario
+Dentro de cada subcarpeta se va a encontrar un archivo README.md con instrucciones específicas.
 Ejemplo con **Docker + TCP + Go** (`docker-tcp-go`):
 
 1. Construir la imagen:
