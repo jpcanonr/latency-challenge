@@ -13,6 +13,8 @@ La meta es lograr latencias **menores a 1 ms** en condiciones óptimas.
 
 ## 📂 Estructura del repositorio
 Cada subcarpeta corresponde a un escenario:
+```text
+.
 ├── escenario1_docker-tcp-go
 ├── escenario2_docker-http-go
 ├── escenario3_docker-tcp-python
