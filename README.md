@@ -10,7 +10,7 @@ Diseñar y construir un sistema que, ante un estímulo (ejemplo: un mensaje), re
 
 ---
 
-## 🎯 Requisitos básicos
+## ⚙️ Requisitos básicos
 
 - El sistema debe escuchar permanentemente peticiones o estímulos.  
 - Al recibir el estímulo, el sistema debe retornar una respuesta específica.  
