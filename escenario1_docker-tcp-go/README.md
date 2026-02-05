@@ -76,3 +76,8 @@ Se debe obtener una salida como esta:
    Latencia mínima: 0.366 ms
    Latencia máxima: 3.171 ms
    ```
+
+2. La forma de ejecutar el benchmark es:
+   ```bash
+   go run benchmark.go
+   ```
