@@ -61,7 +61,7 @@ Se debe obtener una salida como esta:
 
 ## Paso 6: Ejecutar pruebas de latencia con benchmark
 
-1. El archivo benchmark.go permite enviar 1000 peticiones y recibir en la salida
+1. El archivo benchmark.go permite enviar 100 peticiones y recibir en la salida
 
    ```bash
    Iteración 1: 1.029 ms - Respuesta: respuesta
