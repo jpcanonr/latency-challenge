@@ -9,10 +9,13 @@
 1. Instalar **Docker Desktop** en tu máquina y verificar la instalación:
    ```bash
    docker --version
+   ```
+
 2. Instalar Golang e inicializar (Crear archivo go.mod):
    ```bash
    go version
    go mod init server
+   ```
 
 ---
 
@@ -37,6 +40,7 @@ Este cliente enviará el estímulo y medirá la latencia.
    ```bash
    docker build -t go-http-server .
    docker run -p 8080:8080 go-http-server
+   ```
 
 ---
 
@@ -45,19 +49,35 @@ Este cliente enviará el estímulo y medirá la latencia.
 1. Corre el cliente Go en tu máquina host.
    ```bash
    go run client.go
+   ```
+
+Se debe obtener una salida como esta:
+   ```bash
+   Respuesta: respuesta
+   Latencia: 3.9675ms
+   ```
 
 ---
 
-## Paso 6: Optimizar para latencia mínima
-Usa --network host para evitar overhead de NAT:
+## Paso 6: Ejecutar pruebas de latencia con benchmark
+
+1. El archivo benchmark.go permite enviar 100 peticiones y recibir en la salida
+
    ```bash
-   docker run --network host go-http-server
+   Iteración 1: 1.029 ms - Respuesta: respuesta
+   Iteración 2: 0.366 ms - Respuesta: respuesta
+   ...
+   Iteración 99: 0.683 ms - Respuesta: respuesta
+   Iteración 100: 0.623 ms - Respuesta: respuesta
+   
+   📊 Resultados del benchmark
+   Solicitudes: 100
+   Latencia promedio: 0.843 ms
+   Latencia mínima: 0.366 ms
+   Latencia máxima: 3.171 ms
+   ```
 
----
-
-## paso 7: Ejecutar pruebas de latencia
-1. Corre el cliente Go en tu máquina host.
+2. La forma de ejecutar el benchmark es:
    ```bash
-   go run client2.go
-
-Nota: La diferencia entre el cliente 1 y el cliente 2 es que el primero debe conectarse a http://localhost:8080. Si se utiliza la opción "--network host", el cliente debe conectarse a http://127.0.0.1:8080 (no localhost, porque a veces localhost resuelve a IPv6 ::1 y falla).
+   go run benchmark.go
+   ```

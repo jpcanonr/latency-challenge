@@ -9,12 +9,11 @@
 1. Instalar **Docker Desktop** en tu máquina y verificar la instalación:
    ```bash
    docker --version
+   ```
 2. Instalar python:
    ```bash
    python3 --version
-3. Nota: Necesitas instalar requests si no lo tienes:
-   ```bash
-   pip3 install requests
+   ```
 
 ---
 
@@ -39,6 +38,7 @@ Este cliente enviará el estímulo y medirá la latencia.
    ```bash
    docker build -t python-http-server .
    docker run -p 8080:8080 python-http-server
+   ```
 
 ---
 
@@ -47,26 +47,35 @@ Este cliente enviará el estímulo y medirá la latencia.
 1. Corre el cliente Python en tu máquina host.
    ```bash
    python3 client.py
+   ```
+
+Se debe obtener una salida como esta:
+   ```bash
+   Respuesta: respuesta
+   Latencia: 3.9675ms
+   ```
 
 ---
 
-## Paso 6: Optimizar para latencia mínima
-Usa --network host para evitar overhead de NAT:
+## Paso 6: Ejecutar pruebas de latencia con benchmark
+
+1. El archivo benchmark.py permite enviar 100 peticiones y recibir en la salida
+
    ```bash
-   docker run --network host python-http-server
+   Iteración 1: 1.029 ms - Respuesta: respuesta
+   Iteración 2: 0.366 ms - Respuesta: respuesta
+   ...
+   Iteración 99: 0.683 ms - Respuesta: respuesta
+   Iteración 100: 0.623 ms - Respuesta: respuesta
+   
+   📊 Resultados del benchmark
+   Solicitudes: 100
+   Latencia promedio: 0.843 ms
+   Latencia mínima: 0.366 ms
+   Latencia máxima: 3.171 ms
+   ```
 
----
-
-## paso 7: Ejecutar pruebas de latencia
-1. Corre el cliente Go en tu máquina host.
+2. La forma de ejecutar el benchmark es:
    ```bash
-   python3 client.py
-
-Nota:
-Con docker run -p 8080:8080 ... → el contenedor expone el puerto 8080 al host, y el cliente se conecta a 127.0.0.1:8080.
-
-Con docker run --network host ... → el contenedor usa la red del host directamente.
-
-En Linux: el servidor dentro del contenedor escucha en el host real en 0.0.0.0:8080. El cliente puede seguir usando 127.0.0.1:8080.
-
-En macOS y Windows: --network host no funciona igual. Docker Desktop usa una VM interna, y el contenedor no comparte la red del host. Por eso el cliente no encuentra nada y lanza ConnectionRefusedError.
+   python3 benchmark.py
+   ```
