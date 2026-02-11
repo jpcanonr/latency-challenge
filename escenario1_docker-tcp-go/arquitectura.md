@@ -37,12 +37,12 @@ Este documento describe la arquitectura y el flujo de comunicación del primer e
 
 ```plaintext
 +-------------------+        TCP        +-------------------------+
-|                   | ----------------> |                         |
-|   Cliente Go      |                   |   Docker Container      |
-|   (Host Machine)  | <---------------- |   Servidor Go (TCP)     |
-|                   |   "respuesta"     |   Puerto 8080           |
+|                   |    "estimulo"     |                         |
+|   Cliente Go      | ----------------> |   Docker Container      |
+|   (Host Machine)  |                   |   Servidor Go (TCP)     |
+|                   | <---------------- |   Puerto 8080           |
+|                   |   "respuesta"     |                         |
 +-------------------+                   +-------------------------+
-         "estimulo"
 ```
 
 ---
