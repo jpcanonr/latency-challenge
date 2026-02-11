@@ -36,13 +36,13 @@ Este documento describe la arquitectura y el flujo de comunicación del tercer e
 ## 3. Arquitectura visual
 
 ```plaintext
-+----------------------+        TCP        +-------------------------+
-|                      | ----------------> |                         |
-|   Cliente Python     |                   |   Docker Container      |
-|   (Host Machine)     | <---------------- |   Servidor Python (TCP) |
-|                      |   "respuesta"     |   Puerto 8080           |
-+----------------------+                   +-------------------------+
-         "estimulo"
++-------------------+        TCP        +-------------------------+
+|                   |    "estimulo"     |                         |
+|  Cliente Python   | ----------------> |  Docker Container       |
+|  (Host Machine)   |                   |  Servidor Python (TCP)  |
+|                   | <---------------- |  Puerto 8080            |
+|                   |   "respuesta"     |                         |
++-------------------+                   +-------------------------+
 ```
 
 ---
