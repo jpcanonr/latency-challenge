@@ -44,8 +44,3 @@ Dentro de cada carpeta encontrarás:
 
 ## 🧪 Cómo ejecutar un escenario
 Dentro de cada subcarpeta se va a encontrar un archivo README.md con instrucciones específicas.
-Ejemplo con **Docker + TCP + Go** (`docker-tcp-go`):
-
-1. Construir la imagen:
-   ```bash
-   docker build -t go-tcp-server .
